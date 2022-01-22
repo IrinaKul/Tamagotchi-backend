@@ -1,0 +1,13 @@
+flask
+flask_cors
+flask_migrate
+flask_praetorian
+flask_restx
+flask_sqlalchemy
+flask_accepts
+sqlalchemy
+gunicorn
+marshmallow-sqlalchemy
+psycopg2
+marshmallow_dataclass
+flask_marshmallow
