@@ -8,6 +8,7 @@ flask_accepts
 sqlalchemy
 gunicorn
 marshmallow-sqlalchemy
+sqlalchemy-utils
 psycopg2
 marshmallow_dataclass
 flask_marshmallow
