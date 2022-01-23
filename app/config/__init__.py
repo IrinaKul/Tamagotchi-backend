@@ -7,3 +7,4 @@ class Config:
     JWT_REFRESH_LIFESPAN = {"days": 30}
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///app.db').replace('postgres:', 'postgresql:')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+    SCHEDULER_API_ENABLED = True

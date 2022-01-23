@@ -9,3 +9,7 @@ class TamagochiSchema(ma.SQLAlchemyAutoSchema):
         model = Tamagochi
         load_instance = True
         include_fk = True
+
+    id = ma.auto_field(dump_only=True)
+    user_id = ma.auto_field(dump_only=True)
+    general_state = ma.auto_field(dump_only=True)
