@@ -9,3 +9,5 @@ class Tamagochi(db.Model):
     game = db.Column(db.Float)
     health = db.Column(db.Float)
     general_state = db.Column(db.Float)
+    name = db.Column(db.String)
+    gender = db.Column(db.String)

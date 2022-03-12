@@ -3,5 +3,5 @@ from dataclasses import dataclass
 
 @dataclass
 class LoginData:
-    name: str
+    login: str
     password: str

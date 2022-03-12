@@ -3,10 +3,10 @@ from .db_init import db
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50))
+    login = db.Column(db.String(50))
     hashed_password = db.Column(db.String(255))
     roles = db.Column(db.String(12))
-    tamagochi = db.relationship("Tamagochi", cascade="all,delete", backref="owner")
+    tamagochi = db.relationship("Tamagochi", cascade="all,delete", backref="owner", uselist=False)
 
     @property
     def identity(self):
@@ -41,14 +41,14 @@ class User(db.Model):
         return self.hashed_password
 
     @classmethod
-    def lookup(cls, name):
+    def lookup(cls, login):
         """
         *Required Method*
         flask-praetorian requires that the user class implements a ``lookup()``
         class method that takes a single ``username`` argument and returns a user
         instance if there is one that matches or ``None`` if there is not.
         """
-        return db.session.query(cls).filter_by(name=name).one_or_none()
+        return db.session.query(cls).filter_by(login=login).one_or_none()
 
     @classmethod
     def identify(cls, user_id):
