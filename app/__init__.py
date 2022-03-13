@@ -41,7 +41,7 @@ def create_app():
     api.init_app(app)
     api.add_namespace(resource.user_ns)
     api.add_namespace(resource.tamagochi_ns)
-    api.add_namespace(resource.uidata_ns)
+    api.add_namespace(resource.imagedata_ns)
 
     cors.init_app(app)
 
