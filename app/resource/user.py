@@ -29,7 +29,7 @@ class UserLoginResource(Resource):
 class UserRegistrationResource(Resource):
     @user_ns.doc('Registration')
     @accepts(schema=RegistrationDataSchema, api=user_ns)
-    @responds(schema=None, api=user_ns, status_code=200)
+    # @responds(schema=None, api=user_ns, status_code=200)
     def post(self):
         data = request.parsed_obj
         if User.query.filter_by(login=data.login).first():
