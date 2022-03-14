@@ -20,14 +20,14 @@ class TamagochiGameResource(Resource):
     def post(self):
         user_id = guard.extract_jwt_token(guard.read_token())['id']
         user = User.query.get(user_id)
-        user.tamagochi[0].game += 0.2
-        if user.tamagochi[0].game > 1:
-            user.tamagochi[0].game = 1
-        user.tamagochi[0].general_state = 0.3 * user.tamagochi[0].sleep + 0.3 * user.tamagochi[0].food + \
-                                          0.2 * user.tamagochi[0].game + 0.2 * user.tamagochi[0].health
+        user.tamagochi.game += 0.2
+        if user.tamagochi.game > 1:
+            user.tamagochi.game = 1
+        user.tamagochi.general_state = 0.3 * user.tamagochi.sleep + 0.3 * user.tamagochi.food + \
+                                          0.2 * user.tamagochi.game + 0.2 * user.tamagochi.health
         db.session.add(user)
         db.session.commit()
-        return user.tamagochi[0]
+        return user.tamagochi
 
 
 @tamagochi_ns.route("/food")
@@ -38,14 +38,14 @@ class TamagochiFoodResource(Resource):
     def post(self):
         user_id = guard.extract_jwt_token(guard.read_token())['id']
         user = User.query.get(user_id)
-        user.tamagochi[0].food += 0.2
-        if user.tamagochi[0].food > 1:
-            user.tamagochi[0].food = 1
-        user.tamagochi[0].general_state = 0.3 * user.tamagochi[0].sleep + 0.3 * user.tamagochi[0].food + \
-                                          0.2 * user.tamagochi[0].game + 0.2 * user.tamagochi[0].health
+        user.tamagochi.food += 0.2
+        if user.tamagochi.food > 1:
+            user.tamagochi.food = 1
+        user.tamagochi.general_state = 0.3 * user.tamagochi.sleep + 0.3 * user.tamagochi.food + \
+                                          0.2 * user.tamagochi.game + 0.2 * user.tamagochi.health
         db.session.add(user)
         db.session.commit()
-        return user.tamagochi[0]
+        return user.tamagochi
 
 
 @tamagochi_ns.route("/health")
@@ -56,14 +56,14 @@ class TamagochiHealthResource(Resource):
     def post(self):
         user_id = guard.extract_jwt_token(guard.read_token())['id']
         user = User.query.get(user_id)
-        user.tamagochi[0].health += 0.2
-        if user.tamagochi[0].health > 1:
-            user.tamagochi[0].health = 1
-        user.tamagochi[0].general_state = 0.3 * user.tamagochi[0].sleep + 0.3 * user.tamagochi[0].food + \
-                                          0.2 * user.tamagochi[0].game + 0.2 * user.tamagochi[0].health
+        user.tamagochi.health += 0.2
+        if user.tamagochi.health > 1:
+            user.tamagochi.health = 1
+        user.tamagochi.general_state = 0.3 * user.tamagochi.sleep + 0.3 * user.tamagochi.food + \
+                                          0.2 * user.tamagochi.game + 0.2 * user.tamagochi.health
         db.session.add(user)
         db.session.commit()
-        return user.tamagochi[0]
+        return user.tamagochi
 
 
 @tamagochi_ns.route("/sleep")
@@ -74,14 +74,14 @@ class TamagochiSleepResource(Resource):
     def post(self):
         user_id = guard.extract_jwt_token(guard.read_token())['id']
         user = User.query.get(user_id)
-        user.tamagochi[0].sleep += 0.2
-        if user.tamagochi[0].sleep > 1:
-            user.tamagochi[0].sleep = 1
-        user.tamagochi[0].general_state = 0.3 * user.tamagochi[0].sleep + 0.3 * user.tamagochi[0].food + \
-                                          0.2 * user.tamagochi[0].game + 0.2 * user.tamagochi[0].health
+        user.tamagochi.sleep += 0.2
+        if user.tamagochi.sleep > 1:
+            user.tamagochi.sleep = 1
+        user.tamagochi.general_state = 0.3 * user.tamagochi.sleep + 0.3 * user.tamagochi.food + \
+                                          0.2 * user.tamagochi.game + 0.2 * user.tamagochi.health
         db.session.add(user)
         db.session.commit()
-        return user.tamagochi[0]
+        return user.tamagochi
 
 
 @tamagochi_ns.route("/")
