@@ -14,3 +14,4 @@ marshmallow_dataclass
 flask_marshmallow
 flask_apscheduler
 flask_mobility
+werkzeug==2.1.2
