@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from flask_migrate import Migrate
+from flask_mobility import Mobility
 from flask_restx import Api
 from flask_apscheduler import APScheduler
 
@@ -13,6 +14,8 @@ from .schema.init_ma import ma
 cors = CORS()
 migrate = Migrate()
 scheduler = APScheduler()
+mobility = Mobility()
+
 api = Api(authorizations={
     'Bearer': {
         'type': 'apiKey',
@@ -39,6 +42,7 @@ def create_app():
     migrate.init_app(app, db)
     ma.init_app(app)
     api.init_app(app)
+    mobility.init_app(app)
     api.add_namespace(resource.user_ns)
     api.add_namespace(resource.tamagochi_ns)
     api.add_namespace(resource.imagedata_ns)

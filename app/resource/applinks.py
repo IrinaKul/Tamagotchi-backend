@@ -1,6 +1,6 @@
 import flask_praetorian
 
-from flask import request
+from flask import request, redirect
 from flask_accepts import accepts, responds
 from flask_restx import Resource, Namespace
 
@@ -10,6 +10,8 @@ applinks_ns = Namespace('.well-known')
 @applinks_ns.route("/assetlinks.json")
 class AppLinksResource(Resource):
     def get(self):
+        if request.MOBILE:
+            return redirect('https://drive.google.com/file/d/1wzsl152Nr9HBctG65mMoBuMDk3yCyMT6/view')
         return [{
             "relation": ["delegate_permission/common.handle_all_urls"],
             "target": {
