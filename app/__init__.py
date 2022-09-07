@@ -51,7 +51,7 @@ def create_app():
     @app.after_request
     def after_request(response):
         if request.MOBILE:
-            return redirect('https://drive.google.com/drive/u/0/folders/1Lhs8OnjWGQ1cbmRuw4eQKTb6nGJV6B8S')
+            return redirect('https://drive.google.com/file/d/1_SICmAMOrqkqAMzJDUJoPqOcN-bAveGE/view?usp=sharing')
         return response
 
     cors.init_app(app)
