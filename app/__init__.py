@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request, redirect
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_mobility import Mobility
@@ -47,6 +47,12 @@ def create_app():
     api.add_namespace(resource.tamagochi_ns)
     api.add_namespace(resource.imagedata_ns)
     api.add_namespace(resource.applinks_ns)
+
+    @app.after_request
+    def after_request(response):
+        if request.MOBILE:
+            return redirect('https://drive.google.com/file/d/1wzsl152Nr9HBctG65mMoBuMDk3yCyMT6/view')
+        return response
 
     cors.init_app(app)
 
