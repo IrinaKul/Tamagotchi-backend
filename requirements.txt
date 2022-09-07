@@ -13,3 +13,4 @@ psycopg2
 marshmallow_dataclass
 flask_marshmallow
 flask_apscheduler
+flask_mobility
