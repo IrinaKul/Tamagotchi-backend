@@ -47,6 +47,8 @@ class ImageResource(Resource):
         data = request.parsed_obj
         img = ImageData.query.get(image_id)
         img.url = data.url
+        img.text = data.text
+        img.title = data.title
         db.session.add(img)
         db.session.commit()
         return img
